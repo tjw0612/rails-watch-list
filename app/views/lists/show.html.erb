@@ -1,0 +1,22 @@
+<article>
+<h2><%= @list.name %></h2>
+<br>
+</article>
+
+<%= link_to "Add a bookmark",  new_list_bookmark_path(@list) %>
+<br>
+<%= link_to "Back to list", lists_path %>
+
+<h2>Bookmarks list</h2>
+<article>
+<ul class="list-group">
+  <% @bookmarks.each do |bookmark| %>
+    <li class="list-group-item"><%= bookmark.movie.title %>
+    <%= link_to "Remove",
+                  bookmark_path(bookmark), # this links to the route path where delete is
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+</article>
