@@ -1,9 +1,21 @@
-<h2>All lists</h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://thumbs.dreamstime.com/b/top-view-film-bobbin-airy-delicious-popcorn-banner-cinema-concept-top-view-film-bobbin-airy-delicious-popcorn-banner-210961621.jpg)" >
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <p>Classic</p>
+  </div>
+</div>
+
+<div class="container">
 
 <%= link_to "Add a new list", new_list_path %>
 
-<% @lists.each do |list| %>
-  <article>
-    <h2><%= link_to list.name, list_path(list) %></h2>
-  </article>
-<% end %>
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
