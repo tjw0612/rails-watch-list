@@ -96,4 +96,3 @@ development:
 test:
   <<: *default
   database: rails-watch-list_test
-  
