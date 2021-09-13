@@ -1,14 +1,22 @@
-<article>
-<h2><%= @list.name %></h2>
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-<br>
-</article>
 
-<%= link_to "Add a bookmark",  new_list_bookmark_path(@list) %>
-<br>
-<%= link_to "Back to list", lists_path %>
 
-<h2>Bookmarks list</h2>
+
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key %>')">
+    <%= @list.name %>
+    <div class="card-bookmark-count">
+      <%= @bookmarks.count %> movies
+    </div>
+  </div>
+
+<div class="button-corner">
+  <h2>Bookmarks list</h2>
+  <div>
+    <%= link_to "Add a bookmark",  new_list_bookmark_path(@list), class: "btn btn-gradient"%>
+    <%= link_to "Back to list", lists_path, class: "btn btn-gradient" %>
+  </div>
+</div>
+
 <article>
 <ul class="list-group">
   <% @bookmarks.each do |bookmark| %>
@@ -21,3 +29,5 @@
   <% end %>
 </ul>
 </article>
+
+</div>
